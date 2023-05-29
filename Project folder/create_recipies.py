@@ -12,4 +12,5 @@ def initialize_recipies():
     recipies.append({"name": "Tomato Cucumber Salad", "ingredients": ["Tomato", "Cucumber", "Onion", "Lemon"], "URL": "https://www.allrecipes.com/recipe/14157/tomato-cucumber-salad/"})
     recipies.append({"name": "Baked Potato 'n Turnip Fries", "ingredients": ["Turnip", "Potato"], "URL": "https://www.hungry-girl.com/recipes/baked-potato-n-turnip-fries"})
     recipies.append({"name": "Oven-roast potatoes", "ingredients": ["Garlic", "Potato"], "URL": "https://www.goodhousekeeping.com/uk/food/recipes/a538065/oven-roast-potatoes/"})
+    recipies.append({"name": "Apple & Ginger smoothie", "ingredients": ["Apple", "Ginger"], "URL": "https://www.goodhousekeeping.com/uk/food/recipes/a538065/oven-roast-potatoes/"})
     return recipies

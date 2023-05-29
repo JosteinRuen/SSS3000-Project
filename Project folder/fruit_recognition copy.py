@@ -6,7 +6,7 @@ from create_recipies import *
 
 
 #model = keras.models.load_model('object_recognition_fruit.tflite')
-interpreter = tf.lite.Interpreter(model_path='object_recognition_fruit.tflite')
+interpreter = tf.lite.Interpreter(model_path='object_recognition_fruit_v7.tflite')
 interpreter.allocate_tensors()
 
 
@@ -66,9 +66,8 @@ for filename in os.listdir(folder_path):
         print(f"Image: {filename}, Predicted class: {predicted_class}")
         detected_ingredients.append(predicted_class)
 
-ingredients_codes = {0: 'Apple', 1: 'Banana', 2: 'Cherry', 3: 'Chickoo', 4: 'Grape', 5: 'Kiwi', 6: 'Mango', 7: 'Orange', 8: "Strawberry",
-                      9: "Bell Pepper", 10: "Cabbage", 11: "Cucumber", 12: "Garlic", 13: "Lemon", 14: "Lettuce", 15: "Onion", 16: "Paprika",
-                        17: "Pineapple", 18: "Pomegranate", 19:"Potato", 20: "Raddish", 21: "Tomato", 22: "Turnip", 23: "Watermelon"}
+ingredients_codes = {0: 'Apple', 1: 'Banana', 2: 'Cabbage', 3: 'Cucumber', 4: 'Garlic', 5: 'Ginger', 6: 'Grape', 7: 'Kiwi', 8: "Orange",
+                      9: "Bell Pepper"}
 recipies = initialize_recipies()
 
 
