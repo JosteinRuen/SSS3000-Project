@@ -67,7 +67,7 @@ for filename in os.listdir(folder_path):
         detected_ingredients.append(predicted_class)
 
 ingredients_codes = {0: 'Apple', 1: 'Banana', 2: 'Cabbage', 3: 'Cucumber', 4: 'Garlic', 5: 'Ginger', 6: 'Grape', 7: 'Kiwi', 8: "Orange",
-                      9: "Bell Pepper"}
+                      9: "Bell Pepper", 10:"Lemon", 11:"Lime", 12:"Mango", 13:"Onion", 14:"Peach", 15:"Pear", 16:"Pineapple", 17:"Potato",}
 recipies = initialize_recipies()
 
 
