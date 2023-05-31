@@ -2,7 +2,49 @@ from tensorflow import keras
 import tensorflow as tf
 import os
 import numpy as np
+import cv2
+import os
+from picamera import PiCamera
+import time
+def take_picture():
 
+
+    #Camera
+    camera=PiCamera()
+    camera.resolution=(64,64)
+    camera.rotation=180
+
+    #Folder
+    path = "/home/pi/Project/kamerabilder"
+    isExist = os.path.exists(path)
+    if not isExist:
+        os.mkdir(path)
+    else:
+        print("Exist folder")
+
+
+    #Function
+    fortsett = True
+
+    counter = 0
+
+    while fortsett:
+
+        #time.sleep(5)
+        userinput = input("Press 1 to take picture, 2 to close")
+
+        if userinput == "1":
+
+            file_name="/home/pi/Project/kamerabilder/image" + str(counter) +".jpg"
+            camera.capture(file_name)
+
+            print("Picture taken")
+
+            counter += 1
+
+        else:
+            print("closing program")
+            break;
 
 def detect_ingredients():
     #model = keras.models.load_model('object_recognition_fruit.tflite')
@@ -61,8 +103,8 @@ def detect_ingredients():
 def initialize_recipes():
     recipies = []
 
-    recipies.append({"name": "Fruit salad", "ingredients": ["Apple", "Kiwi", "Strawberry"]})
-    recipies.append({"name": "Apple Smoothie", "ingredients": ["Apple"], "URL": "https://foodhero.org/recipes/cucumber-flavored-water"})
+    recipies.append({"name": "Fruit salad", "ingredients": ["Apple", "Kiwi", "Grape"], "URL": "https://foodhero.org/recipes/fruit-salad"]})
+    recipies.append({"name": "Apple Smoothie", "ingredients": ["Apple"], "URL": "https://foodhero.org/recipes/apple-smoothie"})
     recipies.append({"name": "Cucumber Flavored Water", "ingredients": ["Cucumber"], "URL": "https://foodhero.org/recipes/cucumber-flavored-water"})
     recipies.append({"name": "KIwi and mango Smoothie", "ingredients": ["Kiwi", "Mango"]})
     recipies.append({"name": "Strawberry, Apple, & Banana Smoothie", "ingredients": ["Strawberry", "Apple", "Banana"], "URL": "https://www.bigoven.com/recipe/strawberry-apple-banana-smoothie/1464590"})
@@ -93,7 +135,7 @@ def suggest_recipe(detected_ingredients, recipes):
 
 
 def main():
-    
+    take_picture()
     detected_ingredients = detect_ingredients()
     recipes = initialize_recipes()
     suggested_recipes = suggest_recipe(detected_ingredients, recipes)
