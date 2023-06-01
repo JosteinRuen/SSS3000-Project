@@ -1,10 +1,11 @@
+#This version of the program runs on PC
 from tensorflow import keras
 import tensorflow as tf
 import os
 import numpy as np
-import cv2
+#import cv2
 import os
-from picamera import PiCamera
+#from picamera import PiCamera
 import time
 def take_picture():
 
@@ -15,7 +16,7 @@ def take_picture():
     camera.rotation=180
 
     #Folder
-    path = "/home/pi/Project/kamerabilder"
+    path = "/home/pi/Project/kamerabilder-pi"
     isExist = os.path.exists(path)
     if not isExist:
         os.mkdir(path)
@@ -103,7 +104,7 @@ def detect_ingredients():
 def initialize_recipes():
     recipies = []
 
-    recipies.append({"name": "Fruit salad", "ingredients": ["Apple", "Kiwi", "Grape"], "URL": "https://foodhero.org/recipes/fruit-salad"]})
+    recipies.append({"name": "Fruit salad", "ingredients": ["Apple", "Kiwi", "Grape"], "URL": "https://foodhero.org/recipes/fruit-salad"})
     recipies.append({"name": "Apple Smoothie", "ingredients": ["Apple"], "URL": "https://foodhero.org/recipes/apple-smoothie"})
     recipies.append({"name": "Cucumber Flavored Water", "ingredients": ["Cucumber"], "URL": "https://foodhero.org/recipes/cucumber-flavored-water"})
     recipies.append({"name": "KIwi and mango Smoothie", "ingredients": ["Kiwi", "Mango"]})
@@ -135,7 +136,7 @@ def suggest_recipe(detected_ingredients, recipes):
 
 
 def main():
-    take_picture()
+    #take_picture()
     detected_ingredients = detect_ingredients()
     recipes = initialize_recipes()
     suggested_recipes = suggest_recipe(detected_ingredients, recipes)
